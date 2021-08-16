@@ -201,13 +201,13 @@
 		background-color: transparent;
 	}
 	#navigation button i {
-		color: #1e1e1e;
+		color: #fff;
 	}
 	.welcome-box {
 		padding: 150px 0px;
 	}
 	#logo {
-		color: #1e1e1e;
+		color: #fff;
 	}
 	.navbar-toggle {
 		padding: 0;
@@ -244,11 +244,11 @@
 	.navigation-menu > li {
 		display: block;
 		margin: 0;
-		font-size: 35px;
+		font-size: 15px;
 		text-align: center;
 	}
 	.navigation-menu > li > a {
-		color:#222;
+		color:#fff;
 		padding:15px;
 		line-height:1.2;
 	}
@@ -266,7 +266,7 @@
 		right: -15px;
 		border: 0;
 		box-shadow: none;
-		background: #fff;
+		background: transparent;
 		text-align:left;
 		top: 100%;
 		display:none;
