@@ -2,16 +2,14 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         # FIX: Replace this email with recipient email
-        $mail_to = "adylitto@gmail.com";
+        $mail_to = "adyl@ik.me";
         
         # Sender Data
-        $subject = trim($_POST["subject"]);
         $name = str_replace(array("\r","\n"),array(" "," ") , strip_tags(trim($_POST["name"])));
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $phone = trim($_POST["phone"]);
-        $message = trim($_POST["message"]);
+       	$message = trim($_POST["message"]);
         
-        if ( empty($name) OR !filter_var($email, FILTER_VALIDATE_EMAIL) OR empty($message)) {
+        if ( !filter_var($email, FILTER_VALIDATE_EMAIL) OR empty($message)) {
             # Set a 400 (bad request) response code and exit.
             http_response_code(400);
             echo "Please complete the form and try again.";
@@ -19,16 +17,15 @@
         }
         
         # Mail Content
-        $content = "Name: $name\n";
-        $content .= "Email: $email\n\n";
-        $content .= "Phone: $phone\n";
-        $content .= "Message:\n$message\n";
+        $content = "name: $name\n";
+        $content .= "email: $email\n\n";
+        $content .= "message:\n$message\n";
 
         # email headers.
         $headers = "From: $name &lt;$email&gt;";
 
         # Send the email.
-        $success = mail($mail_to, $subject, $content, $headers);
+        $success = mail($mail_to, $content, $headers);
         if ($success) {
             # Set a 200 (okay) response code.
             http_response_code(200);
